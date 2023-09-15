@@ -1,0 +1,40 @@
+h1 {
+    color:rgb(255, 255, 255);
+    width: 33.33333333333%;
+    float: left;
+    text-align: center;
+    font-family: monospace;
+    height: 50px;
+    line-height: 50px;
+}
+#home {
+    background-color: #C5A441;
+}
+#figures {
+    background-color: #73ACE6;
+}
+#people {
+    background-color: #83DEFF;
+}
+body {
+    background-color: #6A5A41;
+}
+img {
+    width: 300px;
+    height: auto;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+.bio-text-box {
+    width: 700px;
+    display: block;
+    font-size: 24px;
+    padding-left: 20px;
+    color: aliceblue;
+}
+.bio-container {
+    width: 70%;
+    display: flex;
+    margin:auto;
+    margin-bottom: 15px;
+}
