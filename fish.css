@@ -38,3 +38,38 @@ img {
     margin:auto;
     margin-bottom: 15px;
 }
+.home-container {
+    width: 1250px;
+    height: 1000px;
+    display: flex;
+    margin: auto;
+    background-color: #83DEFF;
+}
+.about {
+    width: 625px;
+    height: 950 px;
+    margin: left;
+    background-color: #c48e37;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+.background {
+    width: 625px;
+    height: 950 px;
+    margin: right;
+    background-color: #c48e37;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.about > p {
+    width: 100%; 
+    margin-left: 10px;   
+}
+.background > p {
+    width: 100%; 
+    margin-left: 10px;   
+}
