@@ -10,5 +10,29 @@
     <h1 id="home"><a href="file:///Users/charlie/Desktop/fish_project/fish.html">Home</a></h1>
     <h1 id="figures"><a href="file:///Users/charlie/Desktop/fish_project/figures.html">Figures</a></h1> 
     <h1 id="people"><a href="file:///Users/charlie/Desktop/fish_project/people.html">People</a></h1>
+
+    <div id="myplot"></div>
+<script type="module">
+
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+const mononaData = await d3.csv("./mononaData.csv");
+
+const mononaData1995 = d3.filter(mononaData, fish => fish.YEAR == "1995")
+
+const plot = Plot.plot({
+  marginLeft: 60,
+  marks: [
+    Plot.barY(mononaData1995, {x: "Catch_Method", y: "ABUNDANCE"})
+
+  ]
+})
+const div = document.querySelector("#myplot");
+div.append(plot);
+
+</script>
+
 </body>
 </html>
