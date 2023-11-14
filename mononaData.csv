@@ -443,7 +443,7 @@ ABUNDANCE,GENUS_SPECIES,Lake_Abbreviation,Catch_Method,YEAR
 63,Lepomis macrochirus,MO,ELFISH,1995
 37,Lepomis macrochirus,MO,FYKNET,1995
 4.7178,Lepomis macrochirus,MO,VGN051,1995
-204,Lepomis macrochirus,MO,BSEINE,1996
+208,Lepomis macrochirus,MO,BSEINE,1996
 13,Lepomis macrochirus,MO,CRAYTR,1996
 138,Lepomis macrochirus,MO,ELFISH,1996
 43,Lepomis macrochirus,MO,FYKNET,1996
@@ -630,7 +630,6 @@ ABUNDANCE,GENUS_SPECIES,Lake_Abbreviation,Catch_Method,YEAR
 153,Micropterus salmoides,MO,ELFISH,2012
 7,Micropterus salmoides,MO,FYKNET,2012
 1,Micropterus salmoides,MO,TRAMML,2012
-4,Lepomis macrochirus,MO,BSEINE,1996
 1,Morone chrysops,MO,ELFISH,1995
 1,Morone chrysops,MO,TRAMML,1995
 1.0029,Morone chrysops,MO,VGN019,1995

@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="fish.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fish Project</title>
-</head>
-<body>
-    <h1 id="home"><a href="file:///Users/charlie/Desktop/fish_project/fish.html">Home</a></h1>
-    <h1 id="figures"><a href="file:///Users/charlie/Desktop/fish_project/figures.html">Figures</a></h1> 
-    <h1 id="people"><a href="file:///Users/charlie/Desktop/fish_project/people.html">People</a></h1>
-
-    <div id="myplot"></div>
-<script type="module">
-
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-
-import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
-
-const mononaData = 
+export const mononaData = 
 
 [
     {
@@ -3130,7 +3110,7 @@ const mononaData =
       YEAR: "1995"
     },
     {
-      ABUNDANCE: "204",
+      ABUNDANCE: "208",
       GENUS_SPECIES: "Lepomis macrochirus",
       Lake_Abbreviation: "MO",
       Catch_Method: "BSEINE",
@@ -4437,13 +4417,6 @@ const mononaData =
       Lake_Abbreviation: "MO",
       Catch_Method: "TRAMML",
       YEAR: "2012"
-    },
-    {
-      ABUNDANCE: "4",
-      GENUS_SPECIES: "Lepomis macrochirus",
-      Lake_Abbreviation: "MO",
-      Catch_Method: "BSEINE",
-      YEAR: "1996"
     },
     {
       ABUNDANCE: "1",
@@ -6920,21 +6893,3 @@ const mononaData =
       ABUNDANCE: ""
     }
   ]
-
-const mononaData1995 = d3.filter(mononaData, fish => fish.YEAR == "1995")
-
-const plot = Plot.plot({
-  marginLeft: 60,
-  width: 800,
-  marks: [
-    Plot.barY(mononaData1995, {x: "Catch_Method", y: "ABUNDANCE"})
-
-  ]
-})
-const div = document.querySelector("#myplot");
-div.append(plot);
-
-</script>
-
-</body>
-</html>
