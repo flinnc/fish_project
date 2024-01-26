@@ -12,11 +12,15 @@
     <h1 id="people"><a href="file:///Users/charlie/Desktop/fish_project/people.html">People</a></h1>
 
     <div id="myplot"></div>
+    <div id="myplot_2"></div>
+    <div id="myplot_3"></div>
+    <div id="myplot_4"></div>
 <script type="module">
 
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
 import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
 
 const mononaData = 
 
@@ -6923,6 +6927,22 @@ const mononaData =
 
 const mononaData1995 = d3.filter(mononaData, fish => fish.YEAR == "1995")
 
+const mononaNoBrookData = d3.filter(mononaData1995, fish => fish.GENUS_SPECIES != "Labidesthes sicculus" && fish.GENUS_SPECIES != "Lepomis macrochirus")
+
+///// some variables 
+const catchType = d3.map(mononaNoBrookData, d => d.Catch_Method)
+const mononaNames = d3.map(mononaNoBrookData, d => d.GENUS_SPECIES)
+
+
+//// filler cells plot variable
+var fillerCells = []
+  mononaNames.forEach(name => {
+  catchType.forEach(type => {
+    fillerCells.push({name, type})
+  })
+})
+
+
 const plot = Plot.plot({
   marginLeft: 60,
   width: 800,
@@ -6933,6 +6953,49 @@ const plot = Plot.plot({
 })
 const div = document.querySelector("#myplot");
 div.append(plot);
+
+const plot_2 = Plot.plot({
+  marginLeft: 60,
+  marginBottom: 200,
+  x: {label: 'Genus Species', tickRotate: 90},
+  marks: [
+    Plot.barY(mononaData1995, {x: "GENUS_SPECIES", y: "ABUNDANCE"})
+
+  ]
+})
+const div_2 = document.querySelector("#myplot_2")
+div_2.append(plot_2)
+
+const plot_3 = Plot.plot({
+  marginLeft: 60,
+  marginBottom: 200,
+  marginRight: 100,
+  grid: true,
+  x: {label: 'Genus Species', tickRotate: 90},
+  marks: [
+    Plot.frame(),
+    Plot.barY(d3.filter(mononaData1995, method => method.Catch_Method != "BSEINE" && method.GENUS_SPECIES != "Perca flavescens"), {y: "ABUNDANCE", x: "GENUS_SPECIES", fy: "Catch_Method", title: "GENUS_SPECIES" })
+
+  ]
+})
+const div_3 = document.querySelector("#myplot_3")
+div_3.append(plot_3)
+
+const plot_4 = Plot.plot({
+  padding: 0,
+  marginLeft: 200,
+  marginTop: 100,
+  x: {axis: "top", tickRotate: 90},
+  y: {label: "Species"},
+  color: {type: "linear", scheme: "Greens"},
+  marks: [
+    Plot.cell(mononaNoBrookData, {x: "Catch_Method", y: "GENUS_SPECIES", fill: "ABUNDANCE", inset: 0.5})  ,
+    Plot.cell(fillerCells, {x: "type", y: "name", fill: "none", stroke: 'black', strokeWidth: 0.2, opacity: 0.1, inset: 0.5}),
+  ]
+})
+const div_4 = document.querySelector("#myplot_4")
+div_4.append(plot_4)
+
 
 </script>
 
